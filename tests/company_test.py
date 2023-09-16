@@ -69,3 +69,12 @@ def test_employee_name_changed(company):
     employee.set_name("Tommy Lee")
     employee = company.find_employee_by_id("123")
     print("PASSED" if employee.get_name() == "Tommy Lee" else "FAILED")
+
+def test_employee_with_lowest_salary(company):
+    company.add_employee(Employee("001", "Bob", 110_000.00))
+    company.add_employee(Employee("002", "Alice", 115_000.00))
+    company.add_employee(Employee("003", "Carl",  120_000.00))
+
+    lowest_earner = company.employee_with_lowest_salary()
+    
+    assert "Bob" == lowest_earner.get_name()
