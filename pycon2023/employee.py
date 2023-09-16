@@ -23,3 +23,6 @@ class Employee:
     
     def set_salary(self, new_salary):
         self._salary = new_salary
+
+    def is_intern(self):
+        return self.get_id() == "000"

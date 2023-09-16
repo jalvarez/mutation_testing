@@ -44,7 +44,7 @@ class Company:
 
         for i in range(0, len(self._employees)):
             employee = self._employees[i]
-            if employee.get_salary() < found.get_salary():
+            if not employee.is_intern() and employee.get_salary() < found.get_salary():
                 employee = found
         return found
     
