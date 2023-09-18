@@ -19,7 +19,10 @@ def test_leading_trailing_spaces_removed_from_employee_name():
     assert "Bob" == employee_1.get_name()
 
     employee_2 = Employee("002", "Alice  ", 100_000.00)
-    assert "Alice", employee_2.get_name()
+    assert "Alice" == employee_2.get_name()
+
+    employee_3 = Employee("002", "Mr Smith", 100_000.00)
+    assert "Mr Smith" == employee_3.get_name()
 
 def test_employee_with_largest_salary(company):
     company.add_employee(Employee("001", "Alice", 120_000.00))

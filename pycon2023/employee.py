@@ -16,7 +16,7 @@ class Employee:
         - new_name: the new name for the employee, possibly with leading and \
           trailing white space to be removed
         """
-        self._name = new_name.replace(" ", "")
+        self._name = new_name.strip()
 
     def get_salary(self):
         return self._salary
