@@ -10,11 +10,9 @@ def _company_fixture():
 def test_company_renamed(company):
     proposed_name = "Cybertron Unlimited, Ltd."
 
-    with patch.object(company, 'set_name', wraps=company.set_name) as wrapped_set_name:
-        company.set_name(proposed_name)
+    company.set_name(proposed_name)
 
-        wrapped_set_name.assert_called_with(proposed_name)
-        assert company.get_name() is not None
+    assert company.get_name() == proposed_name
 
 def test_leading_trailing_spaces_removed_from_employee_name():
     employee_1 = Employee("001", " Bob", 100_000.00)

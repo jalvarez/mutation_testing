@@ -8,7 +8,7 @@ class Company:
         return self._name
     
     def set_name(self, new_name):
-        self._name = self._name
+        self._name = new_name
 
     def add_employee(self, new_employee):
         self._employees.append(new_employee)
