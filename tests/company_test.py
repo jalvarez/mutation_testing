@@ -35,7 +35,7 @@ def test_employee_with_largest_salary(company):
 
 def test_employee_added(company):
     previous_number_employees = company.number_of_employees()
-    
+
     company.add_employee(Employee("123", "Dave", 100_000.00))
     assert previous_number_employees + 1 == company.number_of_employees()
 
@@ -43,8 +43,9 @@ def test_employee_added(company):
     assert previous_number_employees + 2 == company.number_of_employees()
 
 def test_everybody_gets_raise(company):
-    increase_by = 0.1   # everybody's salary should go up by this fraction
     daves_original_salary = 100_000.00
+    daves_final_salary = 110_000.00
+    increase_by = (daves_final_salary - daves_original_salary) / daves_original_salary
 
     company.add_employee(Employee("123", "Dave",  daves_original_salary))
     company.add_employee(Employee("456", "Alice", 120_000.00))
@@ -53,7 +54,7 @@ def test_everybody_gets_raise(company):
     company.everybody_gets_raise_by(increase_by)
 
     dave = company.find_employee_by_id("123")
-    assert daves_original_salary * increase_by == dave.get_salary()
+    assert daves_final_salary == pytest.approx(dave.get_salary(), 0.001)
 
 def test_find_employee_by_id(company):
     company.add_employee(Employee("123", "Dave",  100_000.00))
