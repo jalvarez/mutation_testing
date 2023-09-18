@@ -44,8 +44,8 @@ class Company:
 
         for i in range(0, len(self._employees)):
             employee = self._employees[i]
-            if not employee.is_intern() and employee.get_salary() < found.get_salary():
-                employee = found
+            if not employee.is_intern() and employee.get_salary() > found.get_salary():
+                found = employee
         return found
     
     def employee_with_lowest_salary(self):
