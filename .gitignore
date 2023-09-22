@@ -1,2 +1,4 @@
 .coverage
 .mutmut-cache
+html
+__pycache__

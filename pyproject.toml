@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "mutation-testing"
+version = "0.1.0"
+description = "Kata performed for the PYCONES2023"
+authors = ["Juán Miguel Álvarez Tosco <jalvarez@fmit-solutions.com>", "Carlos López Pérez <clopez@fmit-solutions.com>"]
+readme = "README.md"
+packages = [{include = "pycon2023"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+mutmut = "^2.4.4"
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+delete_cache = {shell = "rm -rf .coverage .mutmutcache html"}
+install = "poetry install"
+mutation = {shell = "poetry run mutmut run ; echo '\nGenerating html mutation report'"}
+mutation_html = "poetry run mutmut html"
+pytest = "poetry run pytest --cov=pycon2023 tests/"
+test = ["install", "pytest"]
+mutmut = ["install", "delete_cache", "pytest", "mutation", "mutation_html"]
+
+
+
