@@ -38,7 +38,7 @@ poetry install
 
 ### Coverage report
 ```sh
-poetry poe 
+poetry poe test
 ```
 
 ### Mutation testing
