@@ -40,7 +40,7 @@ class Company:
     def employee_with_largest_salary(self):
         found = self._employees[0]
 
-        for i in range(0, len(self._employees)):
+        for i in range(1, len(self._employees)):
             employee = self._employees[i]
             if not employee.is_intern() and employee.get_salary() > found.get_salary():
                 found = employee
