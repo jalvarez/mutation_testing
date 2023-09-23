@@ -19,7 +19,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
-delete_cache = {shell = "rm -rf .coverage .mutmutcache html"}
+delete_cache = {shell = "rm -rf .coverage .mutmut-cache html"}
 install = "poetry install"
 mutation = {shell = "poetry run mutmut run ; echo '\nGenerating html mutation report'"}
 mutation_html = "poetry run mutmut html"
