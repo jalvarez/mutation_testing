@@ -60,6 +60,7 @@ def test_find_employee_by_id(company):
 
     hopefully_dave = company.find_employee_by_id("123")
     hopefully_no_one = company.find_employee_by_id("999")
+    assert hopefully_no_one is None
 
 def test_employee_name_changed(company):
     company.add_employee(Employee("123", "Dave",  100_000.00))
