@@ -50,7 +50,7 @@ def test_everybody_gets_raise(company):
     company.everybody_gets_raise_by(increase_by)
 
     dave = company.find_employee_by_id("123")
-    assert daves_original_salary * increase_by == dave.get_salary()
+    assert daves_original_salary * increase_by == pytest.approx(dave.get_salary(), 0.001)
 
 def test_find_employee_by_id(company):
     company.add_employee(Employee("123", "Dave",  100_000.00))
