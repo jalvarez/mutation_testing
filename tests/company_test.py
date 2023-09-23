@@ -80,3 +80,11 @@ def test_employee_with_lowest_salary(company):
     lowest_earner = company.employee_with_lowest_salary()
     
     assert "Bob" == lowest_earner.get_name()
+
+def test_older_employee_with_lowest_salary(company):
+    company.add_employee(Employee("001", "Alice", 100_000.00))
+    company.add_employee(Employee("002", "Anne", 100_000.00))
+
+    oldest_employee = company.employee_with_lowest_salary()
+
+    assert "Alice" == oldest_employee.get_name()
