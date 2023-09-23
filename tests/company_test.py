@@ -86,5 +86,7 @@ def test_older_employee_with_lowest_salary(company):
     company.add_employee(Employee("002", "Anne", 100_000.00))
 
     oldest_employee = company.employee_with_lowest_salary()
+    assert "Alice" == oldest_employee.get_name()
 
+    oldest_employee = company.employee_with_largest_salary()
     assert "Alice" == oldest_employee.get_name()
