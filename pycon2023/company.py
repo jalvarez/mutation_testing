@@ -38,19 +38,16 @@ class Company:
         return len(self._employees)
     
     def employee_with_largest_salary(self):
+        return self._find_employee_with_condition(lambda employee, found: employee.get_salary() > found.get_salary())
+    
+    def employee_with_lowest_salary(self):
+        return self._find_employee_with_condition(lambda employee, found: employee.get_salary() < found.get_salary())
+    
+    def _find_employee_with_condition(self, condition):
         found = None
 
         for employee in self._employees:
             if not employee.is_intern():
-                if found is None or employee.get_salary() > found.get_salary():
+                if found is None or condition(employee, found):
                     found = employee
-        return found
-    
-    def employee_with_lowest_salary(self):
-        found = self._employees[0]
-
-        for i in range(0, len(self._employees)):
-            employee = self._employees[i]
-            if employee.get_salary() is not None and employee.get_salary() < found.get_salary():
-                found = employee
         return found
