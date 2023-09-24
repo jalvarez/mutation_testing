@@ -13,7 +13,7 @@ class Company:
     def add_employee(self, new_employee):
         self._employees.append(new_employee)
 
-    def everybody_gets_raise_by(self, increment_as_fraction):
+    def everybody_gets_raise_by(self, increment_as_fraction=0.01):
         """Increase every employee's salary by the specified fraction
             - increment_as_fraction: salary increase as a fraction of the original salary. \
               e.g. if the value of the parameter is 0.1, everyone at the company gets \
