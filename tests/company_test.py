@@ -82,3 +82,19 @@ def test_employee_with_lowest_salary(company):
     lowest_earner = company.employee_with_lowest_salary()
     
     assert "Bob" == lowest_earner.get_name()
+
+def test_employee_with_largest_salary_when_all_get_the_same(company):
+    company.add_employee(Employee("001", "Alice", 120_000.00))
+    company.add_employee(Employee("003", "Carl",  120_000.00))
+
+    oldest_employee = company.employee_with_largest_salary()
+    
+    assert "Alice" == oldest_employee.get_name()
+
+def test_employee_with_lowest_salary_when_all_get_the_same(company):
+    company.add_employee(Employee("001", "Alice", 120_000.00))
+    company.add_employee(Employee("003", "Carl",  120_000.00))
+
+    oldest_employee = company.employee_with_lowest_salary()
+    
+    assert "Alice" == oldest_employee.get_name()
