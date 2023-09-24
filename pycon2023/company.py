@@ -51,6 +51,6 @@ class Company:
 
         for i in range(0, len(self._employees)):
             employee = self._employees[i]
-            if employee.get_salary() is not None and employee.get_salary() > found.get_salary():
-                employee = found
+            if employee.get_salary() is not None and employee.get_salary() < found.get_salary():
+                found = employee
         return found
