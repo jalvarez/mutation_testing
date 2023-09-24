@@ -24,7 +24,7 @@ def test_leading_trailing_spaces_removed_from_employee_name():
     assert "Alice", employee_2.get_name()
 
 def test_employee_with_largest_salary(company):
-    company.add_employee(Employee("002", "Bob",   115_000.00))
+    company.add_employee(Employee("002", "Bob", None))
     company.add_employee(Employee("001", "Alice", 120_000.00))
     company.add_employee(Employee("003", "Carl",  110_000.00))
 
