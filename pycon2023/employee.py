@@ -25,4 +25,4 @@ class Employee:
         self._salary = new_salary
 
     def is_intern(self):
-        return self.get_id() == "000"
+        return self.get_salary() is None
