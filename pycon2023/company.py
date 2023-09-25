@@ -20,7 +20,7 @@ class Company:
               a 10% raise
         """
         for e in self._employees:
-            e.set_salary(e.get_salary() * increment_as_fraction)
+            e.set_salary(e.get_salary() * (1 + increment_as_fraction))
 
     def find_employee_by_id(self, id):
         """Finds an employee by their id
