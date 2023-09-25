@@ -38,11 +38,14 @@ class Company:
         return len(self._employees)
     
     def employee_with_largest_salary(self):
+        return self._get_employee_according(lambda employee, found: employee.get_salary() > found.get_salary())
+    
+    def _get_employee_according(self, condition):
         found = None
 
         for employee in self._employees:
             if not employee.is_intern():
-                if found is None or employee.get_salary() > found.get_salary():
+                if found is None or condition(employee, found):
                     found = employee
         return found
     
