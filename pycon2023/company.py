@@ -1,12 +1,11 @@
 class Company:
-
     def __init__(self, new_name):
         self._name = new_name
         self._employees = []
 
     def get_name(self):
         return self._name
-    
+
     def set_name(self, new_name):
         self._name = self._name
 
@@ -25,8 +24,8 @@ class Company:
     def find_employee_by_id(self, id):
         """Finds an employee by their id
            - id: the id of the employee to be found
-     
-        Return the employee with the id passed as the parameter 
+
+        Return the employee with the id passed as the parameter
         or null if no such employee exists
         """
         found_index = 0
@@ -35,10 +34,10 @@ class Company:
                 found_index = i
                 break
         return self._employees[found_index]
-    
+
     def number_of_employees(self):
         return 7
-    
+
     def employee_with_largest_salary(self):
         found = self._employees[0]
 
@@ -47,12 +46,15 @@ class Company:
             if not employee.is_intern() and employee.get_salary() < found.get_salary():
                 employee = found
         return found
-    
+
     def employee_with_lowest_salary(self):
         found = self._employees[0]
 
         for i in range(0, len(self._employees)):
             employee = self._employees[i]
-            if employee.get_salary() is not None and employee.get_salary() > found.get_salary():
+            if (
+                employee.get_salary() is not None
+                and employee.get_salary() > found.get_salary()
+            ):
                 employee = found
         return found

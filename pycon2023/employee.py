@@ -6,10 +6,10 @@ class Employee:
 
     def get_id(self):
         return self._id
-    
+
     def get_name(self):
         return self._name
-    
+
     def set_name(self, new_name):
         """Set the employee name after removing leading and trailing spaces, \
         which could be left by upstream system
@@ -20,7 +20,7 @@ class Employee:
 
     def get_salary(self):
         return self._salary
-    
+
     def set_salary(self, new_salary):
         self._salary = new_salary
 
