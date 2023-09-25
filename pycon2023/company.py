@@ -50,10 +50,4 @@ class Company:
         return found
     
     def employee_with_lowest_salary(self):
-        found = self._employees[0]
-
-        for i in range(0, len(self._employees)):
-            employee = self._employees[i]
-            if employee.get_salary() is not None and employee.get_salary() > found.get_salary():
-                employee = found
-        return found
+        return self._get_employee_according(lambda employee, found: employee.get_salary() < found.get_salary())
