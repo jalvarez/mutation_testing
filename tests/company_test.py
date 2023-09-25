@@ -33,11 +33,13 @@ def test_employee_with_largest_salary(company):
     assert "Alice" == highest_earner.get_name()
 
 def test_employee_added(company):
+    previous_employee_num = company.number_of_employees()
+
     company.add_employee(Employee("123", "Dave", 100_000.00))
-    assert company.number_of_employees() > 0
+    assert previous_employee_num + 1 == company.number_of_employees()
 
     company.add_employee(Employee("456", "Bob", 50_000.00))
-    assert company.number_of_employees() > 0
+    assert previous_employee_num + 2 == company.number_of_employees()
 
 def test_everybody_gets_raise(company):
     increase_by = 0.1   # everybody's salary should go up by this fraction
