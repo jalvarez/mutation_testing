@@ -12,3 +12,10 @@ def test_hired_employee():
     tom = Employee("355", "Tom", 100_000.00)
 
     assert not tom.is_intern()
+
+
+def test_employee_id():
+    employee_id = "102"
+    tom = Employee(employee_id, "Tom", 100_000.00)
+
+    assert tom.get_id() == employee_id
