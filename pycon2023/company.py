@@ -28,12 +28,10 @@ class Company:
         Return the employee with the id passed as the parameter
         or null if no such employee exists
         """
-        found_index = 0
         for i in range(0, len(self._employees)):
             if self._employees[i].get_id() == id:
-                found_index = i
-                break
-        return self._employees[found_index]
+                return self._employees[i]
+        return None
 
     def number_of_employees(self):
         return len(self._employees)
