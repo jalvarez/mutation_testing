@@ -36,7 +36,7 @@ class Company:
         return self._employees[found_index]
 
     def number_of_employees(self):
-        return 7
+        return len(self._employees)
 
     def employee_with_largest_salary(self):
         found = self._employees[0]

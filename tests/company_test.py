@@ -38,11 +38,13 @@ def test_employee_with_largest_salary(company):
 
 
 def test_employee_added(company):
+    number_of_employees = company.number_of_employees()
+
     company.add_employee(Employee("123", "Dave", 100_000.00))
-    assert company.number_of_employees() > 0
+    assert number_of_employees + 1 == company.number_of_employees()
 
     company.add_employee(Employee("456", "Bob", 50_000.00))
-    assert company.number_of_employees() > 0
+    assert number_of_employees + 2 == company.number_of_employees()
 
 
 def test_everybody_gets_raise(company):
