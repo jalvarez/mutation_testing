@@ -1,4 +1,15 @@
+# Mutation testing
+
+This repository contains the code used in the PyConES 2023 talk "X-Men: How a bunch of mutants can help you to improve 
+your tests?".
+
+It is adaptation of the original code kata
+[**Using Mutation Testing to Weed Out Fake Unit Tests**](https://github.com/vmzakharov/mutate-test-kata) using
+the package [mutmut](https://github.com/boxed/mutmut) as mutation tester.
+
 ## Requirements
+
+The following tools are required to run the repository code:
 
 ### Python 3.10
 
@@ -34,15 +45,26 @@ poetry install
 ```
 
 
-## Testing
+## Workflow
 
-### Coverage report
+We added some commands that can help you to resolve the kata:
+
+### Init
+
+To initialise mutmut, run the mutation tester and get the first results:
 ```sh
-poetry poe test
+poetry poe init
 ```
 
-### Mutation testing
+### Launch tests
 
+To run the tests and get the coverage report:
 ```sh
 poetry poe mutmut
 ```
+
+## Solving
+
+The repository contains the branch [a solution](../../tree/a-solution), which contains a sequence of steps to eliminate all the mutants.
+
+However, this solution does not raise all the test smells suggested by the original kata. For example, it didn't catch the bug in the `test_leading_trailing_spaces_removed_from_employee_name` test.
