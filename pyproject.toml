@@ -26,13 +26,28 @@ build-backend = "poetry.core.masonry.api"
 safari = { shell = '(open -g -a Safari "html/index.html") &' }
 delete_cache = { shell = "rm -rf .coverage .mutmut-cache html" }
 install = "poetry install"
-run = { shell = "poetry run mutmut run ; poetry run mutmut results" }
-mutation_html = "poetry run mutmut html"
+run.shell = "poetry run mutmut run ; echo \n"
+results = "poetry run mutmut results"
+mutmut = ["run", "results"]
+results_html = "poetry run mutmut html"
 pytest = "poetry run pytest --cov=pycon2023 tests/"
 test = "poetry run pytest tests/"
 show = "poetry run mutmut show"
 apply = "poetry run mutmut apply"
-init = ["install", "delete_cache", "pytest", "run", "mutation_html", "safari"]
+
+test_result = ["pytest", "run", "results"]
+init = [
+    "install",
+    "delete_cache",
+    "pytest",
+    "run",
+    "results",
+    "results_html",
+    "safari",
+]
+
+[tool.poe.tasks.check]
+sequence = ["run", "results", "pytest"]
 
 [tool.poe.tasks.select]
 sequence = ["show $mutant", "apply $mutant", "test"]
