@@ -60,8 +60,16 @@ poetry poe init
 
 To run the tests and get the coverage report:
 ```sh
-poetry poe mutmut
+poetry poe pytest
 ```
+
+### Show and apply a mutant
+
+To show the mutant and apply this mutant to our code, and get the test:
+```sh
+poetry poe select [mutant identifier]
+```
+
 
 ## Solving
 
