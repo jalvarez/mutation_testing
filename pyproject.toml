@@ -49,20 +49,6 @@ init = [
 [tool.poe.tasks.check]
 sequence = ["run", "results", "pytest"]
 
-test_result = ["pytest", "run", "results"]
-init = [
-    "install",
-    "delete_cache",
-    "pytest",
-    "run",
-    "results",
-    "results_html",
-    "safari",
-]
-
-[tool.poe.tasks.check]
-sequence = ["run", "results", "pytest"]
-
 [tool.poe.tasks.select]
 sequence = ["show $mutant", "apply $mutant", "test"]
 
